@@ -1,0 +1,9 @@
+<div class="container">
+	<h1>IImages with different resolutions</h1>
+	<div ng-repeat="image in viewImage.images">
+	<span class="text-center"><strong>{{'Resolution : ' + viewImage.resolution[$index]}}</span></strong><br>
+		<img class="img-responsive" src="{{image}}" />
+		<br><br>
+		{{image.paths}}
+	</div>
+</div>

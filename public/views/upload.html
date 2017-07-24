@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h1 class="text-center">Image Upload</h1>
+			<hr>
+			<form  ng-controller="uploadCtrl as upload" name="upload.upload_form">
+				<div class="text-center">
+				<span class="btn btn-default btn-file"> Browse to upload Image
+				    <input 
+				    	class="form-control-file"
+						type="file" 
+						ngf-select 
+						ng-model="upload.file" 
+						name="file" 
+						ngf-pattern="'image/*'"
+						accept="image/*" 
+						ngf-validate="{width: {min: 1024, max:1024}, height: {min: 1024, max: 1024}}"
+						/> 
+				</span>
+				<br><br>
+			    <!--ngf-validate="{width: {min: 1024, max:1024}, height: {min: 1024, max: 1024}}"-->
+			    <img style="width:100px;" ngf-thumbnail="upload.file"/><br><br>
+				<div class="alert alert-success" ng-show="upload.successMsg">{{upload.successMsg}}</div>
+				<div class="alert alert-danger" ng-show="upload.errorMsg">{{upload.errorMsg}}</div>
+				<div class="alert alert-danger" ng-show="upload.upload_form.file.$error.minHeight || upload.upload_form.file.$error.minWidth">Image resolution should be 1024*1024. Please use another image.</div><br>
+
+			    <button class="btn btn-success" type="submit" ng-click="upload.submit()">Upload</button>
+			    <p>{{upload.progress}}</p></div>
+			</form>
+		</div>
+	</div>
+</div>
